@@ -103,3 +103,6 @@ C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\s
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\obj\Debug\FinalProject.UI.csproj.CopyComplete
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\obj\Debug\FinalProject.UI.dll
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\obj\Debug\FinalProject.UI.pdb
+C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\FinalProject.DATA.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\FinalProject.DATA.pdb
+C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\FinalProject.DATA.dll.config

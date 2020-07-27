@@ -4,3 +4,9 @@ C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\s
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.DATA\obj\Debug\FinalProject.DATA.csproj.CoreCompileInputs.cache
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.DATA\obj\Debug\FinalProject.DATA.dll
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.DATA\obj\Debug\FinalProject.DATA.pdb
+C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.DATA\bin\Debug\FinalProject.DATA.dll.config
+C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.DATA\bin\Debug\EntityFramework.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.DATA\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.DATA\bin\Debug\EntityFramework.xml
+C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.DATA\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.DATA\obj\Debug\FinalProject.DATA.csproj.CopyComplete
