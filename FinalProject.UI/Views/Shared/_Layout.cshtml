@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="~/Content/css/styles.css" rel="stylesheet" />
+    <link href="~/Content/css/custom.css" rel="stylesheet" />
 </head>
 <body id="page-top">
     <!-- Navigation-->
@@ -27,7 +28,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="@Url.Action("Index", "OpenPositions")">Open Positions</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
                     @Html.Partial("_LoginPartial")
                 </ul>
@@ -37,12 +38,12 @@
     <!-- Masthead-->
     <header class="masthead">
         <div class="container">
-            <div class="masthead-subheading">Welcome To Our Studio!</div>
-            <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+
         </div>
     </header>
-    @RenderBody()
+    <main class="col-md-10 offset-1 custom-formatting">
+        @RenderBody()
+    </main>
     <!-- Footer-->
     <footer class="footer py-4">
         <div class="container">

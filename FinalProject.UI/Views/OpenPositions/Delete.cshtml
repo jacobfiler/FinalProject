@@ -1,0 +1,38 @@
+﻿@model FinalProject.DATA.OpenPosition
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<div>
+    <h4>Are you sure you want to delete this opening?</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.FullLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.FullLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position.Title)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

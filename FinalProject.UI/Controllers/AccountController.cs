@@ -1,4 +1,5 @@
-﻿using FinalProject.UI.Models;
+﻿using FinalProject.DATA;
+using FinalProject.UI.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+
 
 namespace FinalProject.UI.Controllers
 {
@@ -145,7 +147,7 @@ namespace FinalProject.UI.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, HttpPostedFileBase ResumeFilename)
         {
             if (ModelState.IsValid)
             {
@@ -153,6 +155,41 @@ namespace FinalProject.UI.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    string resume = "noImage.png";
+                    if (ResumeFilename != null)
+                    {
+                        //Reassing the variable to the filename sent over
+                        resume = ResumeFilename.FileName;
+
+                        //Create a variable for the extension
+                        string ext = resume.Substring(resume.LastIndexOf('.'));
+
+                        //create a list of valid extensions
+                        string[] goodExts = { ".jpg", ".jpeg", ".pdf", ".docx", ".txt", ".doc" };
+
+                        if (goodExts.Contains(ext.ToLower()))
+                        {
+                            ResumeFilename.SaveAs(Server.MapPath("~/Content/Assets/Resumes/" + resume));
+                        }
+                        else
+                        {
+                            resume = "noImage.png";
+                        }
+
+                    }
+
+                    #region Dealing with custom user details
+                    UserDetail newUserDeets = new UserDetail();
+                    newUserDeets.UserID = user.Id;
+                    newUserDeets.FirstName = model.FirstName;
+                    newUserDeets.LastName = model.LastName;
+                    newUserDeets.ResumeFilename = resume;
+
+                    JobBoardEntities db = new JobBoardEntities();
+                    db.UserDetails.Add(newUserDeets);
+                    db.SaveChanges();
+                    #endregion
+
                     var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");

@@ -79,6 +79,20 @@ namespace FinalProject.UI.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required(ErrorMessage = "*First Name is Required")]
+        [StringLength(50, ErrorMessage = "*Max 50 Characters")]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "*Last Name is Required")]
+        [StringLength(50, ErrorMessage = "*Max 50 Characters")]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [StringLength(75, ErrorMessage = "*Max 75 Characters")]
+        [Display(Name = "Last Name")]
+        public string ResumeFilename { get; set; }
     }
 
     public class ResetPasswordViewModel

@@ -1,0 +1,32 @@
+﻿@model FinalProject.DATA.OpenPosition
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Position.Title)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.FullLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.FullLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position.JobDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position.JobDescription)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OpenPositionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

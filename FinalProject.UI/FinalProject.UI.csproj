@@ -171,10 +171,15 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationsController.cs" />
+    <Compile Include="Controllers\ApplicationStatusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OpenPositionsController.cs" />
+    <Compile Include="Controllers\PositionsController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
+    <Compile Include="Controllers\UserDetailsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,6 +226,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\custom.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\js\scripts.js" />
     <Content Include="favicon.ico" />
@@ -327,9 +333,35 @@
     <Content Include="Views\Applications\Details.cshtml" />
     <Content Include="Views\Applications\Edit.cshtml" />
     <Content Include="Views\Applications\Index.cshtml" />
+    <Content Include="Views\ApplicationStatus\Create.cshtml" />
+    <Content Include="Views\ApplicationStatus\Delete.cshtml" />
+    <Content Include="Views\ApplicationStatus\Details.cshtml" />
+    <Content Include="Views\ApplicationStatus\Edit.cshtml" />
+    <Content Include="Views\ApplicationStatus\Index.cshtml" />
+    <Content Include="Views\Locations\Create.cshtml" />
+    <Content Include="Views\Locations\Delete.cshtml" />
+    <Content Include="Views\Locations\Details.cshtml" />
+    <Content Include="Views\Locations\Edit.cshtml" />
+    <Content Include="Views\Locations\Index.cshtml" />
+    <Content Include="Views\OpenPositions\Create.cshtml" />
+    <Content Include="Views\OpenPositions\Delete.cshtml" />
+    <Content Include="Views\OpenPositions\Details.cshtml" />
+    <Content Include="Views\OpenPositions\Edit.cshtml" />
+    <Content Include="Views\OpenPositions\Index.cshtml" />
+    <Content Include="Views\Positions\Create.cshtml" />
+    <Content Include="Views\Positions\Delete.cshtml" />
+    <Content Include="Views\Positions\Details.cshtml" />
+    <Content Include="Views\Positions\Edit.cshtml" />
+    <Content Include="Views\Positions\Index.cshtml" />
+    <Content Include="Views\UserDetails\Create.cshtml" />
+    <Content Include="Views\UserDetails\Delete.cshtml" />
+    <Content Include="Views\UserDetails\Details.cshtml" />
+    <Content Include="Views\UserDetails\Edit.cshtml" />
+    <Content Include="Views\UserDetails\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\assets\Resumes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

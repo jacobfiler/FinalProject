@@ -24,9 +24,11 @@ namespace FinalProject.DATA//.Metadata
         [Display(Name = "Open Position")]
         public int OpenPositionID { get; set; }
 
+        [Display(Name ="Application Date")]
         public System.DateTime ApplicationDate { get; set; }
 
         [StringLength(200, ErrorMessage = "*Max 200 Characters")]
+        [Display(Name = "Manager Notes")]
         public string ManagerNotes { get; set; }
 
         [Display(Name = "Application Status")]
@@ -34,6 +36,7 @@ namespace FinalProject.DATA//.Metadata
         public int ApplicationStatusID { get; set; }
 
         [StringLength(75, ErrorMessage = "*Max 75 Characters")]
+        [Display(Name = "Resume")]
         public string ResumeFilename { get; set; }
     }
     #endregion
@@ -59,7 +62,14 @@ namespace FinalProject.DATA//.Metadata
 
     #region Location
     [MetadataType(typeof(LocationMetadata))]
-    public partial class Location { }
+    public partial class Location
+    {
+        [Display(Name = "Location")]
+        public string FullLocation
+        {
+            get { return City + ", " + State; }
+        }
+    }
 
     public class LocationMetadata
     {
@@ -81,7 +91,6 @@ namespace FinalProject.DATA//.Metadata
         public string State { get; set; }
 
         [Required(ErrorMessage = "*Manager is Required")]
-        [Range(1, Int32.MaxValue)]
         [Display(Name = "Manager")]
         public string ManagerID { get; set; }
     }
@@ -128,7 +137,14 @@ namespace FinalProject.DATA//.Metadata
 
     #region UserDetails
     [MetadataType(typeof(UserDetailsMetadata))]
-    public partial class UserDetails { }
+    public partial class UserDetail
+    {
+        [Display(Name = "Name")]
+        public string FullName
+        {
+            get { return FirstName + " " + LastName; }
+        }
+    }
 
     public class UserDetailsMetadata
     {
@@ -147,6 +163,8 @@ namespace FinalProject.DATA//.Metadata
         [StringLength(75, ErrorMessage = "*Max 75 Characters")]
         [Display(Name = "Resume")]
         public string ResumeFilename { get; set; }
+
+        
     }
     #endregion
 }

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<FinalProject.DATA.OpenPosition>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h4>Open Positions  </h4>
+@if (User.IsInRole("Admin") || User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Position.Title)
+        </th>
+        <th>
+            Location
+        </th>
+        <th>Details</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position.Title) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.City), @Html.DisplayFor(modelItem => item.Location.State)
+            </td>
+            <td>
+                @if (User.IsInRole("Admin") || User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.OpenPositionID }) @:|
+                }
+                @Html.ActionLink("Details", "Details", new { id = item.OpenPositionID })
+                @if (User.IsInRole("Admin") || User.IsInRole("Admin"))
+                {
+                    @: | @Html.ActionLink("Delete", "Delete", new { id = item.OpenPositionID })
+                }
+            </td>
+        </tr>
+    }
+
+</table>

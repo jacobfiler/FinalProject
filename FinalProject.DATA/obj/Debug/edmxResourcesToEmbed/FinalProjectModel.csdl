@@ -63,7 +63,7 @@
     <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ResumeFilename" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ResumeFilename" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Applications" Relationship="Self.FK_Applications_UserDetails" FromRole="UserDetails" ToRole="Applications" />
     <NavigationProperty Name="Locations" Relationship="Self.FK_Locations_UserDetails" FromRole="UserDetails" ToRole="Locations" />
   </EntityType>

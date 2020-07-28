@@ -53,7 +53,7 @@
     <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="ResumeFilename" Type="varchar" MaxLength="75" Nullable="false" />
+    <Property Name="ResumeFilename" Type="varchar" MaxLength="75" />
   </EntityType>
   <Association Name="FK_Applications_ApplicationStatus">
     <End Role="ApplicationStatus" Type="Self.ApplicationStatus" Multiplicity="1" />
