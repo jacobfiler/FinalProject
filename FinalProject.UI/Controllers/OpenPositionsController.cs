@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FinalProject.DATA;
+using Microsoft.AspNet.Identity;
 
 namespace FinalProject.UI.Controllers
 {
@@ -64,6 +65,34 @@ namespace FinalProject.UI.Controllers
             ViewBag.PositionID = new SelectList(db.Positions, "PositionID", "Title", openPosition.PositionID);
             return View(openPosition);
         }
+
+        public ActionResult Apply(int id)
+        {
+            Application userApp = new Application();
+            var appUserID = User.Identity.GetUserId();// Get ID applicant
+
+            var appUserDets = (from u in db.UserDetails
+                               where u.UserID == appUserID
+                               select u)
+                               .FirstOrDefault();
+
+            userApp.OpenPositionID = id;
+            userApp.UserID = User.Identity.GetUserId();
+            userApp.ApplicationStatusID = 2;//Applied status ID
+            userApp.ResumeFilename = appUserDets.ResumeFilename;
+            userApp.ApplicationDate = DateTime.Now;
+
+            if (ModelState.IsValid)
+            {
+                db.Applications.Add(userApp);
+                db.SaveChanges();
+                return RedirectToAction("Index", "OpenPositions");
+
+            }
+            return RedirectToAction("Index", "OpenPositions");
+        }
+
+
 
         // GET: OpenPositions/Edit/5
         [Authorize(Roles = "Manager, Admin")]

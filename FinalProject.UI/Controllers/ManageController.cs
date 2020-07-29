@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace FinalProject.UI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class ManageController : Controller
     {
         public ManageController()

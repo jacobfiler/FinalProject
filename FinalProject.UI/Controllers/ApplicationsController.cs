@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FinalProject.DATA;
+using Microsoft.AspNet.Identity;
 
 namespace FinalProject.UI.Controllers
 {
+    [Authorize]
     public class ApplicationsController : Controller
     {
         private JobBoardEntities db = new JobBoardEntities();
@@ -17,8 +19,28 @@ namespace FinalProject.UI.Controllers
         // GET: Applications
         public ActionResult Index()
         {
+            var appUserID = User.Identity.GetUserId();
             var applications = db.Applications.Include(a => a.ApplicationStatu).Include(a => a.OpenPosition).Include(a => a.UserDetail);
+            if (User.IsInRole("Seeker"))
+            {
+
+                var sortedApps = (from u in applications
+                                  where u.UserID == appUserID
+                                  select u);
+                return View(sortedApps.ToList());
+            }
+
+
+            if (User.IsInRole("Manager"))
+            {
+                var sortedApps = (from u in applications
+                                  where u.OpenPosition.Location.ManagerID == appUserID
+                                  select u);
+                return View(sortedApps.ToList());
+            }
+
             return View(applications.ToList());
+
         }
 
         // GET: Applications/Details/5

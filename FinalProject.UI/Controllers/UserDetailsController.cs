@@ -16,6 +16,7 @@ namespace FinalProject.UI.Controllers
         private JobBoardEntities db = new JobBoardEntities();
 
         // GET: UserDetails
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Index()
         {
             return View(db.UserDetails.ToList());
@@ -37,6 +38,7 @@ namespace FinalProject.UI.Controllers
         }
 
         // GET: UserDetails/Create
+        [Authorize(Roles = "Manager, Admin")]
         public ActionResult Create()
         {
             return View();
@@ -102,7 +104,7 @@ namespace FinalProject.UI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserID,FirstName,LastName,ResumeFilename")] UserDetail userDetail)
+        public ActionResult Edit([Bind(Include = "UserID,FirstName,LastName,ResumeFilename")] UserDetail userDetail, HttpPostedFileBase ResumeFilename)
         {
             if (ModelState.IsValid)
             {

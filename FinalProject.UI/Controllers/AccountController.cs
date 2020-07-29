@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace FinalProject.UI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AccountController : Controller
     {
         public AccountController()
@@ -155,6 +155,7 @@ namespace FinalProject.UI.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    UserManager.AddToRole(user.Id, "Seeker");
                     string resume = "noImage.png";
                     if (ResumeFilename != null)
                     {

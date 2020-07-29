@@ -12,7 +12,7 @@ using FinalProject.UI.Models;using Microsoft.AspNet.Identity;using Microsoft.A
 
 namespace FinalProject.UI.Controllers
 {
-    [Authorize(Roles = "Manager, Admin")]
+    [Authorize(Roles = "Admin")]
     public class LocationsController : Controller
     {
         private JobBoardEntities db = new JobBoardEntities();

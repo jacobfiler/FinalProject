@@ -10,7 +10,7 @@ using FinalProject.DATA;
 
 namespace FinalProject.UI.Controllers
 {
-    [Authorize(Roles ="Manager, Admin")]
+    [Authorize(Roles ="Admin")]
     public class ApplicationStatusController : Controller
     {
         private JobBoardEntities db = new JobBoardEntities();

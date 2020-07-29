@@ -3,11 +3,9 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
 <div>
-    <h4>Application</h4>
+    <h4>@Html.DisplayFor(model => model.UserDetail.FullName)'s Application</h4>
+    <p><a href="~/Content/Assets/Resumes/@Model.ResumeFilename" target="_blank"><i> Resume</i></a></p>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -27,14 +25,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ResumeFilename)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ResumeFilename)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.ApplicationStatu.Statusname)
         </dt>
 
@@ -43,20 +33,13 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OpenPosition.OpenPositionID)
+            @Html.DisplayNameFor(model => model.OpenPosition.Position.Title)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OpenPosition.OpenPositionID)
+            @Html.DisplayFor(model => model.OpenPosition.Position.Title)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UserDetail.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserDetail.FirstName)
-        </dd>
 
     </dl>
 </div>

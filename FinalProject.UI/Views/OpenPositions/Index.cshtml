@@ -13,6 +13,7 @@
 
 <table class="table">
     <tr>
+        <th></th>
         <th>
             @Html.DisplayNameFor(model => model.Position.Title)
         </th>
@@ -25,6 +26,7 @@
     @foreach (var item in Model)
     {
         <tr>
+            <td>@Html.ActionLink("Apply", "Apply", new { id = item.OpenPositionID })</td>
             <td>
                 @Html.DisplayFor(modelItem => item.Position.Title) 
             </td>

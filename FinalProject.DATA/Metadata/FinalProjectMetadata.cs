@@ -25,6 +25,7 @@ namespace FinalProject.DATA//.Metadata
         public int OpenPositionID { get; set; }
 
         [Display(Name ="Application Date")]
+        [DisplayFormat(DataFormatString ="{0:d}")]
         public System.DateTime ApplicationDate { get; set; }
 
         [StringLength(200, ErrorMessage = "*Max 200 Characters")]
@@ -43,7 +44,7 @@ namespace FinalProject.DATA//.Metadata
 
     #region ApplicationStatus
     [MetadataType(typeof(ApplicationStatusMetadata))]
-    public partial class ApplicationStatus { }
+    public partial class ApplicationStatu { }
 
     public class ApplicationStatusMetadata
     {
@@ -156,7 +157,7 @@ namespace FinalProject.DATA//.Metadata
 
         [Required(ErrorMessage = "*Last Name is Required")]
         [StringLength(50, ErrorMessage = "*Max 50 Characters")]
-        [Display(Name = "Position")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         
