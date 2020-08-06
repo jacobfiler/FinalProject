@@ -3,10 +3,10 @@
 {
 
 
-
-<li class="nav-item">
-    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Details", "UserDetails", new { id = User.Identity.GetUserId() }, htmlAttributes: new { title = "Manage", @class = "nav-link" }))
-</li>
+    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="@Url.Action("Index", "Applications")">Applications</a></li>
+    <li class="nav-item">
+        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Details", "UserDetails", new { id = User.Identity.GetUserId() }, htmlAttributes: new { title = "Manage", @class = "nav-link" })
+    </li>
     <li class="nav-item">
         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "" }))
         {
@@ -15,7 +15,7 @@
         }
     </li>
 
-    
+
 }
 else
 {

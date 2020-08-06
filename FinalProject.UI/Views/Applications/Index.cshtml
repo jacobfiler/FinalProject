@@ -4,42 +4,49 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Applications</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ApplicationDate)
-        </th>
-        @if (!User.IsInRole("Seeker"))
-        {
+<table class="table display">
+    <thead>
+        <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ManagerNotes)
+                @Html.DisplayNameFor(model => model.UserDetail.FullName)
             </th>
-        }
-        <th>
-            @Html.DisplayNameFor(model => model.ResumeFilename)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApplicationStatusID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OpenPosition.Position.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserDetail.FullName)
-        </th>
-        <th></th>
-    </tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OpenPosition.Position.Title)
+            </th>
+            @if (!User.IsInRole("Seeker"))
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.ManagerNotes)
+                </th>
+            }
+            <th>
+                @Html.DisplayNameFor(model => model.ResumeFilename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationStatusID)
+            </th>
 
-    @foreach (var item in Model)
-    {
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.UserDetail.FullName)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.ApplicationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpenPosition.Position.Title)
             </td>
             @if (!User.IsInRole("Seeker"))
             {
@@ -53,18 +60,20 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ApplicationStatu.Statusname)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OpenPosition.Position.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserDetail.FullName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ApplicationID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ApplicationID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ApplicationID })
-            </td>
-        </tr>
-    }
 
+
+
+        </tr>
+        }
+    </tbody>
 </table>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('.display').DataTable({
+                responsive: true
+            });
+        });
+    </script>
+}

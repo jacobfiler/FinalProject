@@ -5,43 +5,50 @@
 }
 <div>
     <h4>@Html.DisplayFor(model => model.UserDetail.FullName)'s Application</h4>
-    <p><a href="~/Content/Assets/Resumes/@Model.ResumeFilename" target="_blank"><i> Resume</i></a></p>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ApplicationDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ApplicationDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ManagerNotes)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ManagerNotes)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ApplicationStatu.Statusname)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ApplicationStatu.Statusname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.OpenPosition.Position.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OpenPosition.Position.Title)
-        </dd>
 
 
-    </dl>
+    <div class="row text-center">
+        <p class="col-md-3 offset-md-1"><a href="~/Content/Assets/Resumes/@Model.ResumeFilename" target="_blank"><i> Resume</i></a></p>
+        <p class="col-md-2 offset-md-1"> <strong>@Html.DisplayNameFor(model => model.ApplicationDate)</strong>: @Html.DisplayFor(model => model.ApplicationDate) </p>
+        <p class="col-md-3 offset-md-1 "><strong>@Html.DisplayNameFor(model => model.OpenPosition.Position.Title)</strong>: @Html.DisplayFor(model => model.OpenPosition.Position.Title)</p>
+
+    </div>
+    <p class="col-md-4 offset-md-4 text-center"><strong>@Html.DisplayNameFor(model => model.ApplicationStatu.Statusname)</strong>: @Html.DisplayFor(model => model.ApplicationStatu.Statusname)</p>
+    @*<dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ApplicationDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ApplicationDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ManagerNotes)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ManagerNotes)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ApplicationStatu.Statusname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ApplicationStatu.Statusname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.OpenPosition.Position.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OpenPosition.Position.Title)
+            </dd>
+
+
+        </dl>*@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ApplicationID }) |

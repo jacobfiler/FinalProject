@@ -50,6 +50,7 @@ C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\s
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\Antlr3.Runtime.dll
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\EntityFramework.dll
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\EntityFramework.SqlServer.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\FinalProject.DATA.dll
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -74,6 +75,8 @@ C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\s
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\System.Web.WebPages.dll
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\System.Web.WebPages.Razor.dll
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\WebGrease.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\FinalProject.DATA.pdb
+C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\FinalProject.DATA.dll.config
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\System.Web.Helpers.xml
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\System.Web.Mvc.xml
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\System.Web.Optimization.xml
@@ -103,6 +106,3 @@ C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\s
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\obj\Debug\FinalProject.UI.csproj.CopyComplete
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\obj\Debug\FinalProject.UI.dll
 C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\obj\Debug\FinalProject.UI.pdb
-C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\FinalProject.DATA.dll
-C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\FinalProject.DATA.pdb
-C:\Users\student\Documents\Visual Studio 2017\Projects\12_PROJECT\FinalProject\src\FinalProject.UI\bin\FinalProject.DATA.dll.config

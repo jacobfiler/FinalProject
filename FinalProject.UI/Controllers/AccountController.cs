@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace FinalProject.UI.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    
     public class AccountController : Controller
     {
         public AccountController()
@@ -195,7 +195,7 @@ namespace FinalProject.UI.Controllers
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
                     ViewBag.Link = callbackUrl;
-                    return View("DisplayEmail");
+                    return RedirectToAction("Login");
                 }
                 AddErrors(result);
             }

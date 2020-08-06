@@ -4,13 +4,29 @@
     ViewBag.Title = "Index";
 }
 <h4>Open Positions  </h4>
-@if (User.IsInRole("Admin") || User.IsInRole("Admin"))
+@if (User.IsInRole("Admin") || User.IsInRole("Manager"))
 {
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
 }
-
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-2">
+            <label>Search Positions: </label>
+        </div>
+        <div class="col-md-2" style="margin-right: 5px;">
+            <input type="text" name="searchFilter" />
+        </div>
+        <div class="col-md-1">
+            <input type="submit" class="btn btn-outline-success btn-sm" , value="Search" />
+        </div>
+        <div class="col-md-1">
+            @Html.ActionLink("Reset", "Index", null, new { @class = "btn btn-outline-danger btn-sm", @style = " margin-bottom: 8px" })
+        </div>
+    </div>
+}
 <table class="table">
     <tr>
         <th></th>
@@ -26,20 +42,34 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@Html.ActionLink("Apply", "Apply", new { id = item.OpenPositionID })</td>
             <td>
-                @Html.DisplayFor(modelItem => item.Position.Title) 
+                @if (User.IsInRole("Seeker"))
+                {
+                    if (item.HasApplied == true)
+                    {
+                        <button class="btn btn-outline-primary" disabled>Applied</button>
+                    }   
+                    else
+                    {
+                        @Html.ActionLink("Apply", "Apply", new { id = item.OpenPositionID }, new { @class = "btn btn-primary" })
+                    }
+
+                }
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Position.Title)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Location.City), @Html.DisplayFor(modelItem => item.Location.State)
             </td>
             <td>
-                @if (User.IsInRole("Admin") || User.IsInRole("Admin"))
+                @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
                 {
                     @Html.ActionLink("Edit", "Edit", new { id = item.OpenPositionID }) @:|
                 }
                 @Html.ActionLink("Details", "Details", new { id = item.OpenPositionID })
-                @if (User.IsInRole("Admin") || User.IsInRole("Admin"))
+                @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
                 {
                     @: | @Html.ActionLink("Delete", "Delete", new { id = item.OpenPositionID })
                 }

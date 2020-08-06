@@ -15,13 +15,10 @@
             @Html.DisplayNameFor(model => model.StoreNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.City)
+            @Html.DisplayNameFor(model => model.FullLocation)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.State)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserDetail.FirstName)
+            @Html.DisplayNameFor(model => model.ManagerID)
         </th>
         <th></th>
     </tr>
@@ -32,13 +29,10 @@
             @Html.DisplayFor(modelItem => item.StoreNumber)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.City)
+            @Html.DisplayFor(modelItem => item.FullLocation)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.State)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserDetail.FirstName)
+            @Html.DisplayFor(modelItem => item.UserDetail.FullName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.LocationID }) |

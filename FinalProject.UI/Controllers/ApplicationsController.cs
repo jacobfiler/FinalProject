@@ -38,8 +38,10 @@ namespace FinalProject.UI.Controllers
                                   select u);
                 return View(sortedApps.ToList());
             }
-
-            return View(applications.ToList());
+            else
+            {
+                return View(applications.ToList());
+            }
 
         }
 

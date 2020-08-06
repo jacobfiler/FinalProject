@@ -30,6 +30,7 @@ namespace FinalProject.DATA//.Metadata
 
         [StringLength(200, ErrorMessage = "*Max 200 Characters")]
         [Display(Name = "Manager Notes")]
+        [UIHint("MultilineText")]
         public string ManagerNotes { get; set; }
 
         [Display(Name = "Application Status")]
@@ -51,7 +52,7 @@ namespace FinalProject.DATA//.Metadata
         //public int ApplicationStatusID { get; set; }
         [Required(ErrorMessage = "Status Name is Required")]
         [StringLength(50, ErrorMessage = "*Max 50 Characters")]
-        [Display(Name = "Status Name")]
+        [Display(Name = "Aplication Status")]
         public string Statusname { get; set; }
 
         [Required(ErrorMessage = "Status Description is Required")]
@@ -99,13 +100,14 @@ namespace FinalProject.DATA//.Metadata
 
     #region OpenPosition
     [MetadataType(typeof(OpenPositionMetadata))]
-    public partial class OpenPosition { }
+    public partial class OpenPosition
+    {
+        public bool HasApplied { get; set; }
+    }
 
     public class OpenPositionMetadata
     {
         //public int OpenPositionID { get; set; }
-        [Required(ErrorMessage = "*Location is Required")]
-        [Range(1, Int32.MaxValue)]
         [Display(Name = "Location")]
         public int LocationID { get; set; }
 

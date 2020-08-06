@@ -185,6 +185,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -203,6 +204,7 @@
     <Content Include="Content\assets\img\logos\envato.jpg" />
     <Content Include="Content\assets\img\logos\themeforest.jpg" />
     <Content Include="Content\assets\img\map-image.png" />
+    <Content Include="Content\assets\img\marvin-meyer-SYTO3xs06fU-unsplash.jpg" />
     <Content Include="Content\assets\img\navbar-logo.svg" />
     <Content Include="Content\assets\img\portfolio\01-full.jpg" />
     <Content Include="Content\assets\img\portfolio\01-thumbnail.jpg" />
@@ -228,6 +230,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\custom.css" />
     <Content Include="Content\css\styles.css" />
+    <Content Include="Content\js\custom.js" />
     <Content Include="Content\js\scripts.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -271,6 +274,7 @@
     <Content Include="_Archive\css\styles.css" />
     <Content Include="_Archive\index.html" />
     <Content Include="_Archive\js\scripts.js" />
+    <Content Include="Content\assets\combinepdf.pdf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -282,7 +286,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -294,7 +300,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -331,7 +336,6 @@
     <Content Include="Views\Applications\Create.cshtml" />
     <Content Include="Views\Applications\Delete.cshtml" />
     <Content Include="Views\Applications\Details.cshtml" />
-    <Content Include="Views\Applications\Edit.cshtml" />
     <Content Include="Views\Applications\Index.cshtml" />
     <Content Include="Views\ApplicationStatus\Create.cshtml" />
     <Content Include="Views\ApplicationStatus\Delete.cshtml" />
@@ -358,6 +362,9 @@
     <Content Include="Views\UserDetails\Details.cshtml" />
     <Content Include="Views\UserDetails\Edit.cshtml" />
     <Content Include="Views\UserDetails\Index.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\EmailConfirmation.cshtml" />
+    <Content Include="Views\Applications\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

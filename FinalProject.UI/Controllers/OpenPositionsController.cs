@@ -16,10 +16,43 @@ namespace FinalProject.UI.Controllers
         private JobBoardEntities db = new JobBoardEntities();
 
         // GET: OpenPositions
-        public ActionResult Index()
+        public ActionResult Index(string searchFilter)
         {
+            var appUserID = User.Identity.GetUserId();
+            var userApps = db.Applications.Where(x => x.UserID == appUserID);
+
             var openPositions = db.OpenPositions.Include(o => o.Location).Include(o => o.Position);
-            return View(openPositions.ToList());
+
+            //only shows manager open positions at their location
+            if (User.IsInRole("Manager"))
+            {
+                var sortedPositions = (from u in openPositions
+                                       where u.Location.ManagerID == appUserID
+                                       select u);
+                return View(sortedPositions.ToList());
+            }
+
+            foreach (var op in openPositions)
+            {
+                foreach (var a in userApps)
+                {
+                    if (op.OpenPositionID == a.OpenPositionID)
+                    {
+                        op.HasApplied = true;
+                    }
+                }
+            }
+
+            if (string.IsNullOrEmpty(searchFilter))
+            {
+                return View(openPositions.ToList());
+            }
+            else
+            {
+                var searchResults = db.OpenPositions.Where(o => o.Position.Title.ToLower().Contains(searchFilter.ToLower()) || o.Location.City.ToLower().Contains(searchFilter.ToLower()) || o.Location.State.ToLower().Contains(searchFilter.ToLower())).OrderBy(o => o.Position.Title).ThenBy(o => o.Location.City) ;
+                return View(searchResults);
+            }
+            ;
         }
 
         // GET: OpenPositions/Details/5
@@ -56,6 +89,15 @@ namespace FinalProject.UI.Controllers
         {
             if (ModelState.IsValid)
             {
+                var appUserID = User.Identity.GetUserId();
+
+                if (User.IsInRole("Manager"))
+                {
+                    openPosition.LocationID = (from l in db.Locations
+                                               where l.ManagerID == appUserID
+                                               select l.LocationID).FirstOrDefault();
+                }
+
                 db.OpenPositions.Add(openPosition);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -66,16 +108,18 @@ namespace FinalProject.UI.Controllers
             return View(openPosition);
         }
 
+        [Authorize(Roles = "Seeker")]
         public ActionResult Apply(int id)
         {
-            Application userApp = new Application();
+            Application userApp = new Application();//get application info
             var appUserID = User.Identity.GetUserId();// Get ID applicant
 
             var appUserDets = (from u in db.UserDetails
                                where u.UserID == appUserID
                                select u)
-                               .FirstOrDefault();
+                               .FirstOrDefault();//get User info
 
+            //Fill out application info 
             userApp.OpenPositionID = id;
             userApp.UserID = User.Identity.GetUserId();
             userApp.ApplicationStatusID = 2;//Applied status ID
@@ -84,6 +128,7 @@ namespace FinalProject.UI.Controllers
 
             if (ModelState.IsValid)
             {
+                //add application and save changes to DB
                 db.Applications.Add(userApp);
                 db.SaveChanges();
                 return RedirectToAction("Index", "OpenPositions");
