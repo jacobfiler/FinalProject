@@ -3,11 +3,11 @@
 @{
     ViewBag.Title = "Index";
 }
-<h4>Open Positions  </h4>
+<h4 class="section-heading text-uppercase">Open Positions  </h4>
 @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
 {
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-outline-success btn-sm" })
     </p>
 }
 @using (Html.BeginForm())
@@ -48,7 +48,7 @@
                     if (item.HasApplied == true)
                     {
                         <button class="btn btn-outline-primary" disabled>Applied</button>
-                    }   
+                    }
                     else
                     {
                         @Html.ActionLink("Apply", "Apply", new { id = item.OpenPositionID }, new { @class = "btn btn-primary" })

@@ -9,7 +9,7 @@
     @Html.AntiForgeryToken()
 
     
-        <h4>Application</h4>
+<h4>@Html.DisplayFor(model => Model.UserDetail.FullName)'s Application</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ApplicationID)

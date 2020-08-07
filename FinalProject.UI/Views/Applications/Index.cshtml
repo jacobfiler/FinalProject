@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Applications</h2>
+<h4 class="section-heading text-uppercase">Applications</h4>
 
 <table class="table display">
     <thead>
@@ -12,9 +12,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.UserDetail.FullName)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ApplicationDate)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.OpenPosition.Position.Title)
             </th>
@@ -24,13 +22,22 @@
                     @Html.DisplayNameFor(model => model.ManagerNotes)
                 </th>
             }
+            @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+            {
+                <th></th>
+            }
             <th>
                 @Html.DisplayNameFor(model => model.ResumeFilename)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ApplicationStatusID)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationDate)
+            </th>
+            <th>
 
+            </th>
 
 
         </tr>
@@ -38,32 +45,39 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserDetail.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApplicationDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OpenPosition.Position.Title)
-            </td>
-            @if (!User.IsInRole("Seeker"))
-            {
+            <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ManagerNotes)
+                    @Html.DisplayFor(modelItem => item.UserDetail.FullName)
                 </td>
-            }
-            <td>
-                <a href="~/Content/Assets/Resumes/@item.ResumeFilename" target="_blank"><i> Resume</i></a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApplicationStatu.Statusname)
-            </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.OpenPosition.Position.Title)
+                </td>
+                @if (!User.IsInRole("Seeker"))
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ManagerNotes)
+                    </td>
+                }
+                @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                {
+                    <td>@Html.ActionLink("Edit", "Edit", new { id = item.ApplicationID })</td>
+                }
+                <td>
+                    <a href="~/Content/Assets/Resumes/@item.ResumeFilename" target="_blank"><i> Resume</i></a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationStatu.Statusname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.OpenPositionID })
+                </td>
 
 
-
-        </tr>
+            </tr>
         }
     </tbody>
 </table>

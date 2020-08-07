@@ -29,7 +29,15 @@ namespace FinalProject.UI.Controllers
                 var sortedPositions = (from u in openPositions
                                        where u.Location.ManagerID == appUserID
                                        select u);
-                return View(sortedPositions.ToList());
+                if (string.IsNullOrEmpty(searchFilter))
+                {
+                    return View(sortedPositions.ToList());
+                }
+                else
+                {
+                    var searchResults = sortedPositions.Where(o => o.Position.Title.ToLower().Contains(searchFilter.ToLower()) || o.Location.City.ToLower().Contains(searchFilter.ToLower()) || o.Location.State.ToLower().Contains(searchFilter.ToLower())).OrderBy(o => o.Position.Title).ThenBy(o => o.Location.City);
+                    return View(searchResults);
+                }
             }
 
             foreach (var op in openPositions)
